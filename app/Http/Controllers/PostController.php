@@ -17,13 +17,15 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->postService->getAllPosts();
-        return view('posts.index', compact('posts'));
+        // return view('posts.index', compact('posts'));
+        return response()->json($posts);
     }
 
     public function show($id)
     {
         $post = $this->postService->getPostById($id);
-        return view('posts.show', compact('post'));
+        return response()->json($post);
+        // return view('posts.show', compact('post'));
     }
 
     public function create()
